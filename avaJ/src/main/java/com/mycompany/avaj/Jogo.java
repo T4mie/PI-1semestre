@@ -247,7 +247,7 @@ public class Jogo extends javax.swing.JFrame {
 
     private void dicaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dicaButtonActionPerformed
         int codPista =  Integer.parseInt(JOptionPane.showInputDialog("numero da questao:"));
-            Pessoa p = new Pessoa();
+            Pergunta p = new Pergunta();
             String msg = p.pista();
             JOptionPane.showMessageDialog(null, msg);
     }//GEN-LAST:event_dicaButtonActionPerformed

@@ -7,8 +7,6 @@ public class Pessoa {
      private String nome;
      private int ranking;
      private int turnos;
-     private String pistas;
-     private int codPista;
     public Pessoa() {
     }
 
@@ -50,21 +48,6 @@ public class Pessoa {
         this.turnos = turnos;
     }
 
-    public String getPistas() {
-        return pistas;
-    }
-
-    public void setPistas(String pistas) {
-        this.pistas = pistas;
-    }
-
-    public int getCodPista() {
-        return codPista;
-    }
-
-    public void setCodPista(int codPista) {
-        this.codPista = codPista;
-    }
 
     public void inserir() {
         String sql = "INSERT INTO ranking (ranking, nome, pontos, turnos) VALUES (?, ?, ?, ?)";
@@ -138,23 +121,7 @@ public class Pessoa {
         }
         return b;
     }
-    public String pista () {
-        String sql = "SELECT pista FROM pistas where codPista=?";
-        String p = "";
-        ConnectionFactory connect = new ConnectionFactory();
-        try (Connection c = connect.obtemConexao()){
-            PreparedStatement ps = c.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            ps.setInt(1, codPista);
-            ps.execute();
-            p += String.format("Dica: %s", pistas);
-        }   
-        catch (Exception e){
-            p+= "Não há registros";
-            e.printStackTrace();
-        }
-        return p;
-    }
+
 
 }
 
