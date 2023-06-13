@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 public class ConnectionFactory {
     private String usuario = "root";
-    private String senha = "528896751mysql";
+    private String senha = "lilica06";
     private String host = "localhost";
     private String porta = "3306";
     private String bd = "PI";
