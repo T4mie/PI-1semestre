@@ -10,6 +10,7 @@ public class Jogo extends javax.swing.JFrame {
     public Jogo() {
         initComponents();
     }
+
     String correto = "LEGAL";
     String resposta = "";
     List<Integer> certo= new ArrayList<Integer>();
@@ -211,9 +212,9 @@ public class Jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_adivinharTextFieldActionPerformed
 
     private void rankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingButtonActionPerformed
-        Pessoa p = new Pessoa();
-                    String msg = p.listar();
-                    JOptionPane.showMessageDialog(null, msg);
+            Pessoa p = new Pessoa();
+            String msg = p.listar();
+            JOptionPane.showMessageDialog(null, msg);
     }//GEN-LAST:event_rankingButtonActionPerformed
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
@@ -246,9 +247,14 @@ public class Jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_atualizarButtonActionPerformed
 
     private void dicaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dicaButtonActionPerformed
-        int codPista =  Integer.parseInt(JOptionPane.showInputDialog("numero da questao:"));
+            int dica =  Integer.parseInt(JOptionPane.showInputDialog("numero da questao:"));
+            //construindo a pergunta
             Pergunta p = new Pergunta();
+            //setCodPista como o input dica
+            p.setCodPista(dica);
+            //o metodo pista da classe pergunta se chama msg
             String msg = p.pista();
+            //mostrar a resposta msg
             JOptionPane.showMessageDialog(null, msg);
     }//GEN-LAST:event_dicaButtonActionPerformed
 

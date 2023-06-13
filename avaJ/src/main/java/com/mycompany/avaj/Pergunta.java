@@ -1,6 +1,5 @@
 
 package com.mycompany.avaj;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,11 +8,11 @@ public class Pergunta {
     private int codPista;
     private String pista;
     
-    public String getPistas() {
+    public String getPista() {
         return pista;
     }
 
-    public void setPistas(String pistas) {
+    public void setPista(String pistas) {
         this.pista = pistas;
     }
 
@@ -26,15 +25,18 @@ public class Pergunta {
     }
     
     public String pista () {
-        String sql = "SELECT pista FROM pistas where codPista=?";
+        String sql = "SELECT pista FROM pistas where codPista= ? ";
         String p = "";
-        ConnectionFactory connect = new ConnectionFactory();
-        try (Connection c = connect.obtemConexao()){
-            PreparedStatement ps = c.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            ps.setInt(1, codPista);
-            ps.execute();
-            p += String.format("Dica: %s", pista);
+        ConnectionFactory cu = new ConnectionFactory();
+        try (Connection c = cu.obtemConexao()){
+            PreparedStatement porra = c.prepareStatement(sql);
+            porra.setInt(1, codPista);
+            ResultSet rs = porra.executeQuery();
+            while(rs.next()){
+                String dica = rs.getString("pista");
+                p = String.format("Dica: %s", dica);
+            }
+            porra.execute();
         }   
         catch (Exception e){
             p+= "Não há registros";

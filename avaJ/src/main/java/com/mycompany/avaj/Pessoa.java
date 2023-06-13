@@ -97,7 +97,7 @@ public class Pessoa {
     }
 
     public String listar(){
-        String sql = "SELECT * FROM ranking sort by pontos";
+        String sql = "SELECT * FROM ranking order by pontos";
         // para fazer uma tavela de pontuação usar a string sql ^^ e botar um sort by
         String b = "";
         ConnectionFactory cock = new ConnectionFactory();
